@@ -2,6 +2,9 @@
 
 namespace VaxLtd\MireIntegration\Api;
 
+use Magento\Sales\Model\Order\Address;
+
+
 /**
  * Interface RequestItemInterface
  *
@@ -15,14 +18,20 @@ interface ResponseItemInterface
     const DATA_FIRSTNAME = 'firstname';
     const DATA_LASTNAME = 'lastname';
     const DATA_MIDDLENAME = 'middlename';
-    CONST DATA_PREFIX = 'prefix';
-    CONST DATA_SUFFIX = 'suffix';
+    const DATA_PREFIX = 'prefix';
+    const DATA_SUFFIX = 'suffix';
+
+    const DATA_BILLING_ADDRESS = 'billing_address';
+    const DATA_SHIPPING_ADDRESS = 'shipping_address';
+
+    const DATA_ITEMS = 'items';
+
 
 
     /**
      * @return int
      */
-    public function getId(): int;
+    public function getId(): int | null;
 
     /**
      * @param int $id
@@ -106,4 +115,38 @@ interface ResponseItemInterface
      * @return $this
      */
     public function setPrefix(string|null $prefix): static;
+
+    /**
+     * @return array | null
+     */
+    public function getShippingAddress(): array| null;
+
+    /**
+     * @param Address | null $address
+     * @return $this
+     */
+    public function setShippingAddress(Address|null $address): static;
+
+    /**
+     * @return array | null
+     */
+    public function getBillingAddress(): array| null;
+
+    /**
+     * @param Address | null $address
+     * @return $this
+     */
+    public function setBillingAddress(Address|null $address): static;
+
+    /**
+     * @return array | null
+     */
+    public function getItems(): array| null;
+
+    /**
+     * @param array | null $items
+     * @return $this
+     */
+    public function setItems(array|null $items): static;
+
 }

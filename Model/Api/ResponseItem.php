@@ -2,8 +2,9 @@
 
 namespace VaxLtd\MireIntegration\Model\Api;
 
-use VaxLtd\MireIntegration\Api\ResponseItemInterface;
 use Magento\Framework\DataObject;
+use Magento\Sales\Model\Order\Address;
+use VaxLtd\MireIntegration\Api\ResponseItemInterface;
 
 /**
  * Class ResponseItem
@@ -13,7 +14,7 @@ class ResponseItem extends DataObject implements ResponseItemInterface
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): int | null
     {
         return $this->_getData(self::DATA_ID);
     }
@@ -132,4 +133,48 @@ class ResponseItem extends DataObject implements ResponseItemInterface
         return $this->setData(self::DATA_PREFIX, $prefix);
     }
 
+    /**
+     * @return array | null
+     */
+    public function getShippingAddress(): array| null{
+        return $this->_getData(self::DATA_SHIPPING_ADDRESS);
+    }
+
+    /**
+     * @param Address|null $address
+     * @return $this
+     */
+    public function setShippingAddress(Address|null $address): static{
+        return $this->setData(self::DATA_SHIPPING_ADDRESS, $address->getData());
+    }
+
+    /**
+     * @return array | null
+     */
+    public function getBillingAddress(): array| null{
+        return $this->_getData(self::DATA_BILLING_ADDRESS);
+    }
+
+    /**
+     * @param Address | null $address
+     * @return $this
+     */
+    public function setBillingAddress(Address|null $address): static{
+        return $this->setData(self::DATA_BILLING_ADDRESS, $address->getData());
+    }
+
+    /**
+     * @return array | null
+     */
+    public function getItems(): array| null{
+        return $this->_getData(self::DATA_ITEMS);
+    }
+
+    /**
+     * @param array | null $items
+     * @return $this
+     */
+    public function setItems(array|null $items): static{
+        return $this->setData(self::DATA_ITEMS, $items);
+    }
 }

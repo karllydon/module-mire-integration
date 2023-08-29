@@ -25,6 +25,7 @@ class OrderRepository implements OrderRepositoryInterface
     protected CollectionFactory $_orderCollectionFactory;
 
 
+
     /**
      * @param CollectionFactory $orderCollectionFactory
      * @param RequestItemInterfaceFactory $requestItemFactory
@@ -76,23 +77,32 @@ class OrderRepository implements OrderRepositoryInterface
     private function getResponseItemFromOrder(OrderInterface $order): ResponseItemInterface
     {
         $responseItem = $this->_responseItemFactory->create();
+
+        $items = [];
+        foreach ($order->getAllItems() as $item) {
+            $items[] = [
+                'name'          => $item->getName(),
+                'sku'           => $item->getSku(),
+                'Price'         => $item->getPrice(),
+                'Ordered Qty'   => $item->getQtyOrdered(),
+            ];
+        }
+
+
+
         $responseItem->setId($order->getId())
-            ->setDob($order->getCustomerDob())
-            ->setEmail($order->getCustomerEmail())
-            ->setPrefix($order->getCustomerPrefix())
-            ->setFirstName($order->getCustomerFirstname())
-            ->setMiddleName($order->getCustomerMiddlename())
-            ->setLastName($order->getCustomerLastname())
-            ->setSuffix($order->getCustomerPrefix());
+                ->setDob($order->getCustomerDob())
+                ->setEmail($order->getCustomerEmail())
+                ->setPrefix($order->getCustomerPrefix())
+                ->setFirstName($order->getCustomerFirstname())
+                ->setMiddleName($order->getCustomerMiddlename())
+                ->setLastName($order->getCustomerLastname())
+                ->setSuffix($order->getCustomerSuffix())
+                ->setShippingAddress($order->getShippingAddress())
+                ->setBillingAddress($order->getBillingAddress())
+                ->setItems($items);
         return $responseItem;
     }
-
-
-
-
-
-
-
 
 }
 
