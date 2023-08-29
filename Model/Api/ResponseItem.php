@@ -31,14 +31,14 @@ class ResponseItem extends DataObject implements ResponseItemInterface
      * @return string | null
      */
     public function getDob(): string | null {
-        return $this->_getData(self::DATA_DOB ?? '');
+        return $this->_getData(self::DATA_DOB);
     }
 
     /**
      * @param string $dob
      * @return $this
      */
-    public function setDob(string $dob): static{
+    public function setDob(string|null $dob): static{
         return $this->setData(self::DATA_DOB, $dob);
     }
 
@@ -53,7 +53,7 @@ class ResponseItem extends DataObject implements ResponseItemInterface
      * @param string $email
      * @return $this
      */
-    public function setEmail(string $email): static{
+    public function setEmail(string|null $email): static{
         return $this->setData(self::DATA_EMAIL, $email);
     }
 
@@ -68,7 +68,7 @@ class ResponseItem extends DataObject implements ResponseItemInterface
      * @param string $firstname
      * @return $this
      */
-    public function setFirstName(string $firstname): static{
+    public function setFirstName(string|null $firstname): static{
         return $this->setData(self::DATA_FIRSTNAME, $firstname);
     }
 
@@ -83,7 +83,7 @@ class ResponseItem extends DataObject implements ResponseItemInterface
      * @param string $lastname
      * @return $this
      */
-    public function setLastName(string $lastname): static{
+    public function setLastName(string|null $lastname): static{
         return $this->setData(self::DATA_LASTNAME, $lastname);
     }
 
@@ -98,7 +98,7 @@ class ResponseItem extends DataObject implements ResponseItemInterface
      * @param string $middlename
      * @return $this
      */
-    public function setMiddleName(string $middlename): static{
+    public function setMiddleName(string|null $middlename): static{
         return $this->setData(self::DATA_MIDDLENAME, $middlename);
     }
 
@@ -113,7 +113,7 @@ class ResponseItem extends DataObject implements ResponseItemInterface
      * @param string $suffix
      * @return $this
      */
-    public function setSuffix(string $suffix): static{
+    public function setSuffix(string|null $suffix): static{
         return $this->setData(self::DATA_SUFFIX, $suffix);
     }
 
@@ -128,7 +128,7 @@ class ResponseItem extends DataObject implements ResponseItemInterface
      * @param string $prefix
      * @return $this
      */
-    public function setPrefix(string $prefix): static{
+    public function setPrefix(string|null $prefix): static{
         return $this->setData(self::DATA_PREFIX, $prefix);
     }
 

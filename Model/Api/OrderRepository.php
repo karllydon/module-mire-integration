@@ -76,7 +76,14 @@ class OrderRepository implements OrderRepositoryInterface
     private function getResponseItemFromOrder(OrderInterface $order): ResponseItemInterface
     {
         $responseItem = $this->_responseItemFactory->create();
-        $responseItem->setId($order->getId());
+        $responseItem->setId($order->getId())
+            ->setDob($order->getCustomerDob())
+            ->setEmail($order->getCustomerEmail())
+            ->setPrefix($order->getCustomerPrefix())
+            ->setFirstName($order->getCustomerFirstname())
+            ->setMiddleName($order->getCustomerMiddlename())
+            ->setLastName($order->getCustomerLastname())
+            ->setSuffix($order->getCustomerPrefix());
         return $responseItem;
     }
 

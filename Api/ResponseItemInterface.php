@@ -39,7 +39,7 @@ interface ResponseItemInterface
      * @param string $dob
      * @return $this
      */
-    public function setDob(string $dob): static;
+    public function setDob(string|null $dob): static;
 
     /**
      * @return string
@@ -50,7 +50,7 @@ interface ResponseItemInterface
      * @param string $email
      * @return $this
      */
-    public function setEmail(string $email): static;
+    public function setEmail(string|null $email): static;
 
     /**
      * @return string
@@ -61,7 +61,7 @@ interface ResponseItemInterface
      * @param string $firstname
      * @return $this
      */
-    public function setFirstName(string $firstname): static;
+    public function setFirstName(string|null $firstname): static;
 
     /**
      * @return string
@@ -72,7 +72,7 @@ interface ResponseItemInterface
      * @param string $lastname
      * @return $this
      */
-    public function setLastName(string $lastname): static;
+    public function setLastName(string|null $lastname): static;
 
     /**
      * @return string
@@ -83,7 +83,7 @@ interface ResponseItemInterface
      * @param string $middlename
      * @return $this
      */
-    public function setMiddleName(string $middlename): static;
+    public function setMiddleName(string|null $middlename): static;
 
     /**
      * @return string
@@ -94,7 +94,7 @@ interface ResponseItemInterface
      * @param string $suffix
      * @return $this
      */
-    public function setSuffix(string $suffix): static;
+    public function setSuffix(string|null $suffix): static;
 
     /**
      * @return string
@@ -105,5 +105,5 @@ interface ResponseItemInterface
      * @param string $prefix
      * @return $this
      */
-    public function setPrefix(string $prefix): static;
+    public function setPrefix(string|null $prefix): static;
 }
