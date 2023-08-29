@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="VaxLtd\MireIntegration\Api\RequestItemInterface"
+                type="VaxLtd\MireIntegration\Model\Api\RequestItem" />
+    <preference for="VaxLtd\MireIntegration\Api\OrderRepositoryInterface"
+                type="VaxLtd\MireIntegration\Model\Api\OrderRepository" />
+    <preference for="VaxLtd\MireIntegration\Api\ResponseItemInterface"
+                type="VaxLtd\MireIntegration\Model\Api\ResponseItem" />
+</config>
